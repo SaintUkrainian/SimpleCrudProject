@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Demo Spring App</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/styles/style.css">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<div class="d-flex flex-column bd-highlight mb-3">
+			<h1 class="font-weight-light p-0">Hello, World of Spring!</h1>
+			<h2 class="bd-highlight">Time on Server: ${date}</h3>
+				<form:form action="${pageContext.request.contextPath}/instructor" method="GET">
+					<h3 class="font-weight-light">Type the name to get JSON from our DataBase!</h3>
+					<div class="form-inline">
+						<div class="form-group mx-sm-3">
+							<input type="text" name="firstName" class="form-control">
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Get" class="btn btn-primary">
+						</div>
+					</div>
+
+				</form:form>
+		</div>
+		<a href="${pageContext.request.contextPath}/addInstructor" class="btn btn-secondary mb-2">New Instructor</a>
+		<table class="table table-dark">
+			<thead>
+				<tr>
+					<th scope="col">First Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="temp" items="${instructors}">
+					<c:url	var="deleteLink" value="/deleteInstructor">
+						<c:param name="instructorId" value="${temp.id}"/>
+					</c:url>
+					<tr>
+						<td>${temp.firstName}</td>
+
+						<td>${temp.lastName}</td>
+
+						<td>${temp.email}</td>
+						<td><a href="${deleteLink}" class="text-danger">Delete</a></td>
+					</tr>
+
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

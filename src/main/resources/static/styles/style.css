@@ -1,0 +1,56 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	align-content: center;
+	height: 100vh;
+}
+
+h1 {
+	padding: 0 10px;
+	color: green;
+}
+
+h3 {
+	color: red;
+}
+
+input {
+	margin-top: 10px;
+	padding: 1px;
+}
+
+input:focus {
+	outline-color: green;
+}
+
+#send-btn {
+	
+	font: sans-serif;
+	background: green;
+	color: #ffffff;
+	
+}
+
+.button-cont {
+	margin-top: 10px;
+}
+
+button {
+	width: fit-content;
+}
+
+table {
+	border: 2px solid black;
+}
+
+#top {
+	border: 2px solid black;
+}
