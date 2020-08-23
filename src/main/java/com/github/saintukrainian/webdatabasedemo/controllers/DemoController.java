@@ -3,7 +3,8 @@ package com.github.saintukrainian.webdatabasedemo.controllers;
 import java.util.Date;
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import com.github.saintukrainian.webdatabasedemo.entity.Instructor;
+import com.github.saintukrainian.webdatabasedemo.jpaRep.InstructorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,9 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.github.saintukrainian.webdatabasedemo.entity.Instructor;
-import com.github.saintukrainian.webdatabasedemo.jpaRep.InstructorRepository;
 
 @Controller
 public class DemoController {

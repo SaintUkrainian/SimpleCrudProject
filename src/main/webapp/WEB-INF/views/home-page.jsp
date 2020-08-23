@@ -14,6 +14,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="${pageContext.request.contextPath}/scripts/script.js" defer></script>
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -45,6 +46,7 @@
 					<th scope="col">First Name</th>
 					<th scope="col">Last Name</th>
 					<th scope="col">Email</th>
+					<th scope="col">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -58,7 +60,7 @@
 						<td>${temp.lastName}</td>
 
 						<td>${temp.email}</td>
-						<td><a href="${deleteLink}" class="text-danger">Delete</a></td>
+						<td><a href="${deleteLink}" class="text-danger" onclick="if(!confirm('Are you sure?')) return false;">Delete</a></td>
 					</tr>
 
 				</c:forEach>
