@@ -8,7 +8,7 @@ import com.github.saintukrainian.webdatabasedemo.entity.Instructor;
 
 public interface InstructorRepository extends JpaRepository<Instructor, Integer> {
 	
-	public Instructor findByFirstName(String firstName);
+	public List<Instructor> findAllByFirstName(String firstName);
 	public List<Instructor> findByOrderByLastName();	
 
 }

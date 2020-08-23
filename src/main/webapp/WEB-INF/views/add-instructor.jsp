@@ -21,7 +21,7 @@ uri="http://www.springframework.org/tags/form" %>
     <div class="container">
         <div class="d-flex flex-column bd-highlight mb-3">
             <h2 class="font-weight-light p-0">
-                Hello, this is a page for adding instructors!
+                This is a page for adding instructors!
             </h2>
             <span class="border border-primary" style="max-width: 18rem;">
                 <form:form action="/updateInstructor" method="POST" modelAttribute="instructor">
@@ -32,6 +32,7 @@ uri="http://www.springframework.org/tags/form" %>
                         <input type="text" class="form-control mb-3" name="email" value="${instructor.email}" placeholder="Enter email">
                         <input type="submit" class="btn btn-primary" value="Add">
                     </div>
+                    <a href="${pageContext.request.contextPath}/" class="text-primary m-3">Back to home page</a>
                 </form:form>
             </span>
         </div>

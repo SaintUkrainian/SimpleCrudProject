@@ -46,6 +46,9 @@ public class DemoController {
 	@PostMapping("/updateInstructor")
 	public String updateInstructor(@ModelAttribute("instructor") Instructor instructor) {
 		System.out.println(instructor.getId());
+		if(instructor.getEmail().trim() == ""){
+			instructor.setEmail("email is not provided");
+		}
 		if(instructor.getId() != 0)
 			rep.save(instructor);
 		else {

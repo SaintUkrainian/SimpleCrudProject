@@ -24,17 +24,17 @@ public class DemoRestController {
 	@ExceptionHandler
 	public String handleErr(IllegalArgumentException exc) {
 		
-		 return "Couldn't find them, sry :(";
+		 return "Couldn't find anyone, sry :(";
 	}
 	
 	@GetMapping("/instructor")
-	public Instructor getInstructor(@RequestParam("firstName") String firstName) {
-		Instructor inst = rep.findByFirstName(firstName);
+	public List<Instructor> getInstructor(@RequestParam("firstName") String name) {
+		List<Instructor> list = rep.findAllByFirstName(name);
 		
-		if(firstName.trim() == "" || inst == null)
+		if(name.trim() == "" || list.size() == 0)
 			throw new IllegalArgumentException();
-		
-		return inst;
+			
+		return list;
 	}
 	
 	@GetMapping("/instructors")
