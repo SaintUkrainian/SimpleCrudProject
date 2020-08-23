@@ -24,11 +24,12 @@ uri="http://www.springframework.org/tags/form" %>
                 Hello, this is a page for adding instructors!
             </h2>
             <span class="border border-primary" style="max-width: 18rem;">
-                <form:form action="/updateInstructor" method="POST">
+                <form:form action="/updateInstructor" method="POST" modelAttribute="instructor">
                     <div class="form-group col-md-12 p-3">
-                        <input type="text" class="form-control mb-3" name="firstName" placeholder="Enter first name">
-                        <input type="text" class="form-control mb-3" name="lastName" placeholder="Enter last name">
-                        <input type="text" class="form-control mb-3" name="email" placeholder="Enter email">
+                        <form:hidden path="id"/>
+                        <input type="text" class="form-control mb-3" name="firstName" value="${instructor.firstName}" placeholder="Enter first name">
+                        <input type="text" class="form-control mb-3" name="lastName" value="${instructor.lastName}" placeholder="Enter last name">
+                        <input type="text" class="form-control mb-3" name="email" value="${instructor.email}" placeholder="Enter email">
                         <input type="submit" class="btn btn-primary" value="Add">
                     </div>
                 </form:form>

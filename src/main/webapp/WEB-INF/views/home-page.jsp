@@ -39,7 +39,7 @@
 
 				</form:form>
 		</div>
-		<a href="${pageContext.request.contextPath}/addInstructor" class="btn btn-secondary mb-2">New Instructor</a>
+		<a href="${pageContext.request.contextPath}/addInstructorPage" class="btn btn-secondary mb-2">New Instructor</a>
 		<table class="table table-dark">
 			<thead>
 				<tr>
@@ -51,8 +51,11 @@
 			</thead>
 			<tbody>
 				<c:forEach var="temp" items="${instructors}">
-					<c:url	var="deleteLink" value="/deleteInstructor">
-						<c:param name="instructorId" value="${temp.id}"/>
+					<c:url var="deleteLink" value="/deleteInstructor">
+						<c:param name="instructorId" value="${temp.id}" />
+					</c:url>
+					<c:url var="updateLink" value="/addInstructor">
+						<c:param name="instructorId" value="${temp.id}" />
 					</c:url>
 					<tr>
 						<td>${temp.firstName}</td>
@@ -60,7 +63,9 @@
 						<td>${temp.lastName}</td>
 
 						<td>${temp.email}</td>
-						<td><a href="${deleteLink}" class="text-danger" onclick="if(!confirm('Are you sure?')) return false;">Delete</a></td>
+						<td><a href="${deleteLink}" class="text-danger"
+								onclick="if(!confirm('Are you sure?')) return false;">Delete</a> <a href="${updateLink}"
+								class="text-primary">Update</a></td>
 					</tr>
 
 				</c:forEach>
