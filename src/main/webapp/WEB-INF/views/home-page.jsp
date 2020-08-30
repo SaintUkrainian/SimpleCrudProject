@@ -26,8 +26,9 @@
 		<div class="header">
 			<div class="d-flex flex-column bd-highlight mb-3">
 				<p><span style="font-weight: bold;">README:</span> It's a simple CRUD application of mine, which uses
-					Spring REST (simple concepts), Spring Data JPA, Spring MVC, JSP and Bootstrap. Input validations are
-					not provided yet (e.g. email can be like example.com or name like @gmail.com)</p>
+					MySql as a data base, Spring REST (simple concepts), Spring Data JPA, Spring MVC, JSP and Bootstrap.
+					Input validations are not provided yet (e.g. email can be like example.com or name like @gmail.com)
+				</p>
 				<h1 class="font-weight-light p-0">Hello, World of Spring!</h1>
 				<h2 class="bd-highlight">Time on Server when page is loaded: ${date}</h3>
 					<h3 class="font-weight-light">Type the name to get JSON from our DataBase!</h3>

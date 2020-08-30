@@ -7,7 +7,7 @@
 //             return false;
 //         } else {
 //             const getId = event.target.getAttribute("href").slice(-1);
-//             fetch(`http://localhost:8080/instructors/${getId}`, {method: "DELETE"});
+//             fetch(`${documnet.URL}/instructors/${getId}`, {method: "DELETE"});
 //         }
 //     }
 // });

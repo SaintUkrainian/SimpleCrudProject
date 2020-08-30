@@ -64,5 +64,4 @@ public class DemoController {
 		rep.deleteById(Integer.parseInt(id));
 		return "redirect:/";
 	}
-
 }
