@@ -63,4 +63,14 @@ public class DemoRestController {
 		return "Instructor with id=" + id + " has been successfully deleted";
 	}
 
+	@PostMapping("/postInstructor")
+	public void getInstructor(@RequestBody Instructor instructor){
+		System.out.println(instructor);
+	}
+
+	@PostMapping("/postArray")
+	public void getArray(@RequestBody List<String> list){
+		System.out.println(list);
+	}
+
 }
