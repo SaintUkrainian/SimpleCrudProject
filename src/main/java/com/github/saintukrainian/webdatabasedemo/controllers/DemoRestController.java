@@ -14,63 +14,65 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.saintukrainian.webdatabasedemo.entity.Instructor;
+import com.github.saintukrainian.webdatabasedemo.helper.HelperClass;
 import com.github.saintukrainian.webdatabasedemo.jpaRep.InstructorRepository;
 
 @RestController
 public class DemoRestController {
-	@Autowired
-	private InstructorRepository rep;
-	
-	@ExceptionHandler
-	public String handleErr(IllegalArgumentException exc) {
-		
-		 return "Couldn't find anyone, sry :(";
-	}
-	
-	@GetMapping("/instructor")
-	public List<Instructor> getInstructor(@RequestParam("firstName") String name) {
-		List<Instructor> list = rep.findAllByFirstName(name);
-		
-		if(name.trim() == "" || list.size() == 0)
-			throw new IllegalArgumentException();
-			
-		return list;
-	}
-	
-	@GetMapping("/instructors")
-	public List<Instructor> getList(){
-		List<Instructor> list = rep.findAll();
-		return list;
-	}
+    @Autowired
+    private InstructorRepository rep;
 
-	@PostMapping("/instructors")
-	public Instructor addInstructor(@RequestBody Instructor instructor){
-		instructor.setId(0);
-		rep.save(instructor);
-		return instructor;
-	}
+    @ExceptionHandler
+    public String handleErr(IllegalArgumentException exc) {
 
-	@PutMapping("/instructors")
-	public Instructor updateInstructor(@RequestBody Instructor instructor){
-		rep.save(instructor);
-		return instructor;
-	}
+        return "Couldn't find anyone, sry :(";
+    }
 
-	@DeleteMapping("/instructors/{id}")
-	public String deleteInstructor(@PathVariable Integer id){
-		rep.deleteById(id);
+    @GetMapping("/instructor")
+    public List<Instructor> getInstructor(@RequestParam("firstName") String name) {
+        List<Instructor> list = rep.findAllByFirstName(name);
 
-		return "Instructor with id=" + id + " has been successfully deleted";
-	}
+        if (name.trim() == "" || list.size() == 0)
+            throw new IllegalArgumentException();
 
-	@PostMapping("/postInstructor")
-	public void getInstructor(@RequestBody Instructor instructor){
-		System.out.println(instructor);
-	}
+        return list;
+    }
 
-	@PostMapping("/postArray")
-	public void getArray(@RequestBody List<String> list){
-		System.out.println(list);
-	}
+    @GetMapping("/instructors")
+    public List<Instructor> getList() {
+        List<Instructor> list = rep.findAll();
+        return list;
+    }
+
+    @PostMapping("/instructors")
+    public Instructor addInstructor(@RequestBody Instructor instructor) {
+        instructor.setId(0);
+        rep.save(instructor);
+        return instructor;
+    }
+
+    @PutMapping("/instructors")
+    public Instructor updateInstructor(@RequestBody Instructor instructor) {
+        rep.save(instructor);
+        return instructor;
+    }
+
+    @DeleteMapping("/instructors/{id}")
+    public String deleteInstructor(@PathVariable Integer id) {
+        rep.deleteById(id);
+
+        return "Instructor with id=" + id + " has been successfully deleted";
+    }
+
+    @PostMapping("/postInstructor")
+    public void getInstructor(@RequestBody Instructor instructor) {
+        HelperClass.getHelper().setItem(instructor);
+        System.out.println(instructor);
+    }
+
+    @PostMapping("/postArray")
+    public void getArray(@RequestBody List<String> list) {
+        System.out.println(list);
+    }
 
 }
