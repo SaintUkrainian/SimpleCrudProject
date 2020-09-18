@@ -7,7 +7,6 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import com.github.saintukrainian.webdatabasedemo.entity.Instructor;
-import com.github.saintukrainian.webdatabasedemo.helper.HelperClass;
 import com.github.saintukrainian.webdatabasedemo.jpaRep.InstructorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +52,6 @@ public class DemoController {
     @GetMapping("/addInstructorPage")
     public String addInstructorPage(Model model) {
         model.addAttribute("instructor", new Instructor());
-        System.out.println("In DemoController: " + HelperClass.getHelper().getItem());
         return "add-instructor";
     }
 

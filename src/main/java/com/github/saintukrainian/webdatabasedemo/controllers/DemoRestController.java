@@ -2,6 +2,9 @@ package com.github.saintukrainian.webdatabasedemo.controllers;
 
 import java.util.List;
 
+import com.github.saintukrainian.webdatabasedemo.entity.Instructor;
+import com.github.saintukrainian.webdatabasedemo.jpaRep.InstructorRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,10 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.github.saintukrainian.webdatabasedemo.entity.Instructor;
-import com.github.saintukrainian.webdatabasedemo.helper.HelperClass;
-import com.github.saintukrainian.webdatabasedemo.jpaRep.InstructorRepository;
 
 @RestController
 public class DemoRestController {
@@ -62,17 +61,6 @@ public class DemoRestController {
         rep.deleteById(id);
 
         return "Instructor with id=" + id + " has been successfully deleted";
-    }
-
-    @PostMapping("/postInstructor")
-    public void getInstructor(@RequestBody Instructor instructor) {
-        HelperClass.getHelper().setItem(instructor);
-        System.out.println(instructor);
-    }
-
-    @PostMapping("/postArray")
-    public void getArray(@RequestBody List<String> list) {
-        System.out.println(list);
     }
 
 }
