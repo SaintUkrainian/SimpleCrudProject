@@ -1,4 +1,4 @@
 # Simple CRUD Project
 It's a simple CRUD application of mine, which uses
-MySql as a data base, Spring REST (simple concepts), Spring Data JPA, Spring MVC, JSP and Bootstrap. 
+MySql as a database, Spring REST (simple concepts), Spring Data JPA, Spring MVC, JSP and Bootstrap. 
 Input validations are not provided yet (e.g. email can be like example.com or name like @gmail.com)
